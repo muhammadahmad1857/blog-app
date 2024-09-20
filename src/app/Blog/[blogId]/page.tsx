@@ -11,10 +11,19 @@ interface Post {
   body: string;
 }
 
+// interface for commentData
+interface CommentDataType {
+  body: string;
+  email: string;
+  id: number;
+  name: string;
+  postId: number;
+}
+
 export default function BlogId({ params }: { params: { blogId: string } }) {
   const [postData, setPostData] = useState<Post | null>(null);
   const [eachComment, setEachComment] = useState<string>("");
-  const [comments, setComments] = useState<any>([]);
+  const [comments, setComments] = useState<CommentDataType[]>([]);
 
   useEffect(() => {
     currentPost();
@@ -36,12 +45,12 @@ export default function BlogId({ params }: { params: { blogId: string } }) {
   };
   // function to add a new comment
   const addComment = (comment: string) => {
-    const newComment = {
-      postId: postData?.id || 0,
+    const newComment: CommentDataType = {
+      body: comment,
+      email: "user@example.com",
       id: Math.floor(Math.random() * 1000),
       name: "User",
-      email: "user@example.com",
-      body: comment,
+      postId: postData?.id || 0,
     };
     setComments([newComment, ...comments]);
   };
@@ -85,7 +94,7 @@ export default function BlogId({ params }: { params: { blogId: string } }) {
 
         {/* Comments Section */}
         {comments &&
-          comments.map((com: any, index: any) => {
+          comments.map((com: CommentDataType, index: number) => {
             return <Comments commentData={com} key={index} />;
           })}
       </div>
