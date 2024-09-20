@@ -89,7 +89,7 @@ export default function Home() {
       <main className="flex flex-col items-center justify-center h-[50vh] p-8">
         <div className="absolute -z-10 w-full h-72">
           <img
-            className="w-full bg-size:cover h-full bg-red-500"
+            className="w-full bg-size:cover h-full bg-black"
             alt="Background image"
             src={
               "https://i.pinimg.com/originals/87/2c/ab/872cab564cb7eaf7cb9535da24eb2c6d.gif"
