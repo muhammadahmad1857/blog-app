@@ -25,7 +25,7 @@ export default function Blog() {
   };
 
   return (
-    <div >
+    <div>
       <main className="flex flex-col items-center justify-center h-[50vh] p-8">
         <div className="absolute -z-10 w-full h-1/2">
           <Image
@@ -39,7 +39,9 @@ export default function Blog() {
           />
         </div>
         <h1 className="text-4xl font-bold text-white mb-4">Blog Posts</h1>
-        <p className="text-xl font-bold text-white mb-4">Click on the post to see comments</p>
+        <p className="text-xl font-bold text-white mb-4">
+          Click on the post to see comments
+        </p>
       </main>
 
       {loading && (
@@ -60,12 +62,12 @@ export default function Blog() {
       )}
 
       {/* Pagination controls */}
-      <div className="flex justify-center mt-6 space-x-4 py-2">
+      <div className="flex justify-center mt-6 space-x-4 py-4">
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className={`px-4 py-2 bg-gray-300 rounded hover:bg-gray-600 hover:text-white ${
-            currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
+          className={`px-4 py-2 bg-gray-300 transition-all duration-500  rounded hover:bg-gray-600 hover:text-white ${
+            currentPage === 1 ? "opacity-50 cursor-not-allowed" : "; "
           }`}
         >
           Previous
@@ -76,7 +78,7 @@ export default function Blog() {
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={!hasMore}
-          className={`px-4 py-2 bg-gray-300 rounded hover:bg-gray-600 hover:text-white ${
+          className={`px-4 py-2 transition-all duration-500 bg-gray-300 rounded hover:bg-gray-600 hover:text-white ${
             !hasMore ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >

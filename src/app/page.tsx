@@ -118,7 +118,7 @@ export default function Home() {
         )}
 
         {!loading && !error && data && (
-          <div className="grid grid-cols-3 gap-4 h-full w-full">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 h-full w-full place-items-center">
             {data.map((item: PostDataType, index) => {
               return (
                 <Link key={index} href={`/Blog/${item.id}`}>
@@ -131,7 +131,7 @@ export default function Home() {
           </div>
         )}
 
-        <div className=" bg-gray-800 hover:rounded-xl text-white font-bold my-10 cursor-pointer max-w-sm rounded text-center transition-all duration-500 mx-auto p-2 hover:bg-gray-300 hover:text-black">
+        <div className=" bg-gray-800 hover:rounded-xl  text-white font-bold my-10 cursor-pointer max-w-sm rounded-md text-center transition-all duration-500 mx-auto p-2 hover:bg-gray-300 hover:text-black">
           <Link href={"/Blog"}>See More</Link>
         </div>
       </div>
